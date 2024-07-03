@@ -15,14 +15,16 @@
       "supportsTablet": true,
       "infoPlist": {
         "NSBluetoothAlwaysUsageDescription": "This app uses Bluetooth to discover nearby devices."
-      }
+      },
+      "bundleIdentifier": "com.anonymous.BLEApp"
     },
     "android": {
       "permissions": [
         "ACCESS_FINE_LOCATION",
         "BLUETOOTH",
         "BLUETOOTH_ADMIN",
-        "BLUETOOTH_SCAN"
+        "BLUETOOTH_SCAN",
+        "BLUETOOTH_CONNECT"
       ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -32,6 +34,24 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "react-native-permissions",
+        {
+          "permissions": {
+            "ios": [
+              "BLUETOOTH_PERIPHERAL",
+              "LOCATION_ALWAYS"
+            ],
+            "android": [
+              "ACCESS_FINE_LOCATION",
+              "BLUETOOTH_SCAN",
+              "BLUETOOTH_CONNECT"
+            ]
+          }
+        }
+      ]
+    ]
   }
 }
