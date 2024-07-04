@@ -28,6 +28,10 @@ target 'BLEApp' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Bluetooth', :path => "#{permissions_path}/Bluetooth/Permission-Bluetooth.podspec"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse/Permission-LocationWhenInUse.podspec"
+
   post_install do |installer|
     react_native_post_install(
       installer,
